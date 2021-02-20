@@ -4,30 +4,30 @@
 
 There are two environments you will be working in for the exercises today.
 
-1. **Jumpbox:** The apps and containers must be run on a Linux machine. A CentOS linux machine has been created for you in your Azure subscription.
-
-    > Note: If you have bash or ssh available on your machine, it is easiest to access the jump box via SSH. Otherwise, RDP is required.
+1. **Your Computer:** The apps and containers must be run on a Linux machine. A CentOS linux machine has been created for you in your Azure subscription.
 
 2. **Azure Cloud Shell:** The Azure Cloud Shell will be accessed by logging into the Azure Portal (http://portal.azure.com).
 
-Labs 1 and 2 require the Jumpbox. The subsequent labs all use the Azure Cloud Shell.
+Labs 1 and 2 require your local computer. The subsequent labs all use the Azure Cloud Shell.
 
 ## Clone Lab Github Repo
 
-Once you have accessed the jumpbox, you must clone the workshop repo to the machine.
+On your local computer, you will need to clone the workshop repo to the machine.
 
-1. Start with a terminal on the jumpbox
+1. Start with a terminal on your local computer
 2. Clone the Github repo via the command line
 
     ```
-    git clone https://github.com/Azure/blackbelt-aks-hackfest.git
+    git clone https://github.com/Azure/blackbelt-aks-hackfest.git   // TODO: Change this URL
     ```
 
 ## Get Applications up and running
 
 ### Database layer - MongoDB
 
-The underlying data store for the app is [MongoDB](https://www.mongodb.com/ "MongoDB Homepage"). It is already running. We need to import the data for our application.
+The underlying data store for the app is [MongoDB](https://www.mongodb.com/ "MongoDB Homepage"). With MongoDB running, we need to import the data for our application.
+
+> **Note:** [Download and install MongoDB](https://www.mongodb.com/download-center#community) if required.
 
 1. Import the data using a terminal session on the jumpbox
 
@@ -41,7 +41,7 @@ The underlying data store for the app is [MongoDB](https://www.mongodb.com/ "Mon
 
 The API for the app is written in javascript, running on [Node.js](https://nodejs.org/en/ "Node.js Homepage") and [Express](http://expressjs.com/ "Express Homepage")
 
-1. Update dependencies and run app via node in a terminal session on the jumpbox
+1. Update dependencies and run app via node from a shell session on your computer.
 
     ```bash
     cd ~/blackbelt-aks-hackfest/app/api
@@ -51,17 +51,18 @@ The API for the app is written in javascript, running on [Node.js](https://nodej
 
 2. Open a new terminal session on the jumpbox and test the API
 
-    use curl
     ```bash
     curl http://localhost:3000/api/heroes
     ```
-    If you are in an RDP session, you can browse to <http://localhost:3000/api/heroes>
+    You can also open up a browser from your desktop and browse to <http://localhost:3000/api/heroes>.  
+    
+    Using [Postman](https://www.getpostman.com/) is also an option.
 
 ### Web Application layer - Vue.js, Node.js
 
 The web frontend for the app is written in [Vue.js](https://vuejs.org/Vue "Vue.js Homepage"), running on [Node.js](https://nodejs.org/en/ "Node.js Homepage") with [Webpack](https://webpack.js.org/ "Webpack Homepage")
 
-1. Open a new terminal session on the jumpbox
+1. Open a new shell session on your local computer
 2. Update dependencies and run app via node
 
     ```bash
